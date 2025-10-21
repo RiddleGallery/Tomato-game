@@ -94,7 +94,11 @@ public class GameManager : MonoBehaviour
     public void Hurt(int damage)
     {
         _health += damage;
-        _healthDisplay.sprite = _healthSprites[_health];
+
+        int spriteIndex = _health;
+        spriteIndex = Mathf.Clamp(spriteIndex, 0, _healthSprites.Count - 1);
+
+        _healthDisplay.sprite = _healthSprites[spriteIndex];
      //   _OverlayDisplay.sprite = _OverlaySprite[_health];
         if (_health >= 4)
         {
