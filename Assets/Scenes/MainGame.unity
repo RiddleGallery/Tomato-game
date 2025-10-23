@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.504717, b: 0.504717, a: 1}
+  m_Color: {r: 0.84276724, g: 0.08745688, b: 0.23390697, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1525,8 +1525,12 @@ MonoBehaviour:
   - {fileID: 2029695052, guid: ebf894ae8d6b0654da58dd5810636ffa, type: 3}
   - {fileID: -1570630158, guid: ebf894ae8d6b0654da58dd5810636ffa, type: 3}
   - {fileID: 1501213846, guid: ebf894ae8d6b0654da58dd5810636ffa, type: 3}
-  _OverlayDisplay: {fileID: 0}
-  _OverlaySprite: []
+  _OverlayDisplay: {fileID: 194954154}
+  _OverlaySprite:
+  - {fileID: 21300000, guid: a5e0820e04166b949b42f141ff1f17cb, type: 3}
+  - {fileID: 21300000, guid: a5e0820e04166b949b42f141ff1f17cb, type: 3}
+  - {fileID: 21300000, guid: dfb79bda4ff29664e91ab4537c4e8fbc, type: 3}
+  - {fileID: 21300000, guid: caf013bf83b48af4eaba288467f2b71e, type: 3}
   _SpawnerInGame: 1
 --- !u!4 &1073626105
 Transform:
@@ -1561,7 +1565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1122098808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2194,7 +2198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -14.4, y: -15}
+  m_AnchoredPosition: {x: -14.400024, y: -15}
   m_SizeDelta: {x: 162.9428, y: 82.55}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1680776321

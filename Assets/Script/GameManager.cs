@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,11 +36,20 @@ public class GameManager : MonoBehaviour
             return;
         }
         _instance = this;
+
+        
+
         _health = 0;
         _healthDisplay.sprite = _healthSprites[_health];
-       // _OverlayDisplay.sprite = _OverlaySprite[_health];
+        _OverlayDisplay.sprite = _OverlaySprite[_health];
         _score = 0;
 
+
+    }
+    private void Start()
+    {
+        
+        _OverlayDisplay.enabled = false;
     }
     void Update()
     {
@@ -93,13 +103,17 @@ public class GameManager : MonoBehaviour
     }
     public void Hurt(int damage)
     {
+        _OverlayDisplay.enabled = true;
+        
         _health += damage;
 
         int spriteIndex = _health;
         spriteIndex = Mathf.Clamp(spriteIndex, 0, _healthSprites.Count - 1);
+        int sIOverlay = _health;
+        sIOverlay = Mathf.Clamp(sIOverlay, 0, _OverlaySprite.Count - 1);
 
         _healthDisplay.sprite = _healthSprites[spriteIndex];
-     //   _OverlayDisplay.sprite = _OverlaySprite[_health];
+        _OverlayDisplay.sprite = _OverlaySprite[sIOverlay];
         if (_health >= 4)
         {
             BadEnd();
