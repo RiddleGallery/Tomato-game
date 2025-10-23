@@ -26,7 +26,15 @@ public class Player : MonoBehaviour
         _rb.velocity = new Vector2(moveX, moveY).normalized * _speed;
        
         // please do the animator for moving left right 
-
+        if (moveX > 0)
+        {
+            _animator.SetTrigger("isRunning");
+            
+        }
+        else if (moveX < 0)
+        {
+            _animator.SetTrigger("isRunningLeft");
+        }
 
         // shoot bullet at mouse position when left mouse button is clicked pivot is front of the bullet
         if (Input.GetMouseButtonDown(0))
@@ -42,7 +50,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void hurt()
+    public void GotHurt()
     {
         _animator.SetTrigger("Hurt");
     }

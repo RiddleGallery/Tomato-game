@@ -1517,6 +1517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3334265c6868ca44aa9bfc164875492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p: {fileID: 0}
   _scoreLabel: {fileID: 496720385}
   _Timer: {fileID: 222189311}
   _healthDisplay: {fileID: 1813548969}
