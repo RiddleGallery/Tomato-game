@@ -24,16 +24,33 @@ public class Player : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
         _rb.velocity = new Vector2(moveX, moveY).normalized * _speed;
-       
+
         // please do the animator for moving left right 
+
+
         if (moveX > 0)
         {
-            _animator.SetTrigger("isRunning");
-            
+            _animator.SetBool("isRunning", true);
+            _animator.SetBool("isRunningLeft", false);
+            _animator.SetBool("isRunningRight", true) ;
         }
         else if (moveX < 0)
         {
-            _animator.SetTrigger("isRunningLeft");
+            _animator.SetBool("isRunning", true);
+            _animator.SetBool("isRunningLeft", true);
+            _animator.SetBool("isRunningRight", false);
+        }
+        else if (moveY > 0 || moveY < 0)
+        {
+            _animator.SetBool("isRunning", true);
+            _animator.SetBool("isRunningLeft", false);
+            _animator.SetBool("isRunningRight", true);
+        }
+        else
+        {
+            _animator.SetBool("isRunningLeft", false);
+            _animator.SetBool("isRunning", false);
+            _animator.SetBool("isRunningRight", false);
         }
 
         // shoot bullet at mouse position when left mouse button is clicked pivot is front of the bullet

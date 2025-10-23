@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         _OverlayDisplay.enabled = true;
         
         _health += damage;
-        //p.GotHurt();
+        p.GotHurt();
         int spriteIndex = _health;
         spriteIndex = Mathf.Clamp(spriteIndex, 0, _healthSprites.Count - 1);
         int sIOverlay = _health;
