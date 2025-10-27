@@ -797,6 +797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 4
+  lastmove: 0
   _bulletPrefab: {fileID: 1790393049662502396, guid: 8995294bce14e194c81967d5939e6ab0, type: 3}
 --- !u!95 &391120876
 Animator:
@@ -2682,7 +2683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7417760800983564742, guid: 525860c53a60a8e4f8040e8262e937ff, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8521485647749641790, guid: 525860c53a60a8e4f8040e8262e937ff, type: 3}
       propertyPath: m_LocalPosition.x

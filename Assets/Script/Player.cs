@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private float lastmove;
     [SerializeField] Rigidbody2D _bulletPrefab;
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -26,22 +27,27 @@ public class Player : MonoBehaviour
         _rb.velocity = new Vector2(moveX, moveY).normalized * _speed;
 
         // please do the animator for moving left right 
-        float lastmove = moveX;
-
+        
+        
         if (moveX > 0)
         {
+            moveX = 1;
+            lastmove = moveX;
             _animator.SetBool("isRunning", true);
             _animator.SetBool("isRunningLeft", false);
             _animator.SetBool("isRunningRight", true) ;
         }
         else if (moveX < 0)
         {
+            moveX = -1;
+            lastmove = moveX;
             _animator.SetBool("isRunning", true);
             _animator.SetBool("isRunningLeft", true);
             _animator.SetBool("isRunningRight", false);
         }
         else if (moveY > 0 || moveY < 0)
         {
+            
             if (lastmove > 0)
             {
                 _animator.SetBool("isRunning", true);
