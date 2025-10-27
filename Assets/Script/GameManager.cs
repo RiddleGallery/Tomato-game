@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     private int _health;
     private int _score;
 
-    private float _timeLim = 120f;
+    private float _timeLim = 95f;
     bool _isGameOver;
 
     private void Awake()
