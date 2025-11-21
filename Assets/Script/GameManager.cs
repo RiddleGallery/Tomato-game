@@ -22,10 +22,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image _OverlayDisplay;
     [SerializeField] private List<Sprite> _OverlaySprite;
 
+    [SerializeField] private Image _badEnd;
+    [SerializeField] private Image _happyEnd;
+    [SerializeField] private Image _goodEnd;
+    [SerializeField] private Image _normalEnd;
 
     [SerializeField] private float _SpawnerInGame;
     private int _health;
     private int _score;
+    [SerializeField] private int _scoreThreshold;
 
     private float _timeLim = 95f;
     bool _isGameOver;
@@ -53,6 +58,11 @@ public class GameManager : MonoBehaviour
     {
         
         _OverlayDisplay.enabled = false;
+        _badEnd.gameObject.SetActive(false);
+        _happyEnd.gameObject.SetActive(false);
+        _goodEnd.gameObject.SetActive(false);
+        _normalEnd.gameObject.SetActive(false);
+
     }
     void Update()
     {
@@ -77,7 +87,15 @@ public class GameManager : MonoBehaviour
         _Timer.text = (_timeLim - (_timeLim% 1)).ToString();
         if (_timeLim <= 0f)
         {
-            NormalEnd();
+            if (_score >= _scoreThreshold)
+            {
+                GoodEnd();
+            }
+            else
+            {
+                NormalEnd();
+            }
+                
         }
     }
 
@@ -85,6 +103,7 @@ public class GameManager : MonoBehaviour
     {
         EndGame();
         // calculate final score
+        _normalEnd.gameObject.SetActive(true);
     }
 
     private void EndGame()
@@ -101,7 +120,7 @@ public class GameManager : MonoBehaviour
         // check if all spawners are deactivated
         if (_SpawnerInGame <= 0)
         {
-            GoodEnd();
+            HappyEnd();
         }
     }
     public void Hurt(int damage)
@@ -118,7 +137,7 @@ public class GameManager : MonoBehaviour
         _healthDisplay.sprite = _healthSprites[spriteIndex];
         _OverlayDisplay.sprite = _OverlaySprite[sIOverlay];
         if (_health >= 4)
-        {
+        {           ;
             BadEnd();
         }
     }
@@ -126,12 +145,21 @@ public class GameManager : MonoBehaviour
     {
         EndGame();
         // active good end UI
+        _goodEnd.gameObject.SetActive(true);
     }
     private void BadEnd()
     {
         EndGame();
         // active bad end UI
+        _badEnd.gameObject.SetActive(true);
     }
+
+    private void HappyEnd()
+    {
+        EndGame();
+        _happyEnd.gameObject.SetActive(true);
+    }
+
 
 
 }
