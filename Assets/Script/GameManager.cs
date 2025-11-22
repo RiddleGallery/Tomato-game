@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float _SpawnerInGame;
     private int _health;
-    private int _score;
+    public int _score;
     [SerializeField] private int _scoreThreshold;
 
     private float _timeLim = 95f;
@@ -107,8 +107,7 @@ public class GameManager : MonoBehaviour
     private void NormalEnd()
     {
         EndGame();
-
-        // calculate final score
+        ShowHighscoreScript.NormalEndUnlocked = true;
         _normalEnd.gameObject.SetActive(true);
     }
 
@@ -123,7 +122,7 @@ public class GameManager : MonoBehaviour
 
     public void InactiveSpawner(int increment)
     {
-       // _SpawnerInGame -= increment;
+       _SpawnerInGame -= increment;
         // check if all spawners are deactivated
         if (_SpawnerInGame <= 0)
         {
@@ -151,19 +150,19 @@ public class GameManager : MonoBehaviour
     private void GoodEnd()
     {
         EndGame();
-        // active good end UI
+        ShowHighscoreScript.GoodEndUnlocked = true;
         _goodEnd.gameObject.SetActive(true);
     }
     private void BadEnd()
     {
         EndGame();
-        // active bad end UI
         _badEnd.gameObject.SetActive(true);
     }
 
     private void HappyEnd()
     {
         EndGame();
+        ShowHighscoreScript.HappyEndUnlocked = true;
         _happyEnd.gameObject.SetActive(true);
     }
 

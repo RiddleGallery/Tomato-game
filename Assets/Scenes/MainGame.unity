@@ -1150,7 +1150,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.47450984, g: 0.2901961, b: 0.22352943, a: 0}
+  m_BackGroundColor: {r: 0.9568628, g: 0.9568628, b: 0.93725497, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1799,7 +1799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e426b364ab7ac3c4cbca9f76e661c11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BackButton: {fileID: 0}
 --- !u!114 &1031591621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1878,8 +1877,9 @@ MonoBehaviour:
   _normalEnd: {fileID: 2079947217}
   _restartButton: {fileID: 1772846297}
   _backButton: {fileID: 1817395577}
-  _SpawnerInGame: 1
-  _scoreThreshold: 10
+  _SpawnerInGame: 4
+  _score: 0
+  _scoreThreshold: 25
 --- !u!4 &1073626105
 Transform:
   m_ObjectHideFlags: 0
@@ -2143,7 +2143,7 @@ Transform:
   m_GameObject: {fileID: 1259707869}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4, y: -7.4869, z: 0}
+  m_LocalPosition: {x: -0.4, y: -7.4869, z: 10}
   m_LocalScale: {x: 2.6563654, y: 3.4957614, z: 1.0471}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2494,7 +2494,7 @@ Transform:
   m_GameObject: {fileID: 1482988792}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.154, y: 9.6509, z: 0}
+  m_LocalPosition: {x: -0.154, y: 9.6509, z: 20}
   m_LocalScale: {x: 39.604305, y: -0.8240659, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2922,7 +2922,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e426b364ab7ac3c4cbca9f76e661c11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BackButton: {fileID: 0}
 --- !u!114 &1817395577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3030,7 +3029,7 @@ GameObject:
   - component: {fileID: 1828450125}
   - component: {fileID: 1828450124}
   m_Layer: 5
-  m_Name: Canvas2
+  m_Name: Ending
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
