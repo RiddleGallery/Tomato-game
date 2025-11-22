@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image _goodEnd;
     [SerializeField] private Image _normalEnd;
 
+    [SerializeField] private Button _restartButton;
+    [SerializeField] private Button _backButton;
+
     [SerializeField] private float _SpawnerInGame;
     private int _health;
     private int _score;
@@ -62,6 +65,8 @@ public class GameManager : MonoBehaviour
         _happyEnd.gameObject.SetActive(false);
         _goodEnd.gameObject.SetActive(false);
         _normalEnd.gameObject.SetActive(false);
+        _restartButton.gameObject.SetActive(false);
+        _backButton.gameObject.SetActive(false);
 
     }
     void Update()
@@ -102,6 +107,7 @@ public class GameManager : MonoBehaviour
     private void NormalEnd()
     {
         EndGame();
+
         // calculate final score
         _normalEnd.gameObject.SetActive(true);
     }
@@ -111,7 +117,8 @@ public class GameManager : MonoBehaviour
         if (_isGameOver) return;
         _isGameOver = true;
         Time.timeScale = 0f;
-
+        _restartButton.gameObject.SetActive(true);
+        _backButton.gameObject.SetActive(true);
     }
 
     public void InactiveSpawner(int increment)
@@ -137,7 +144,7 @@ public class GameManager : MonoBehaviour
         _healthDisplay.sprite = _healthSprites[spriteIndex];
         _OverlayDisplay.sprite = _OverlaySprite[sIOverlay];
         if (_health >= 4)
-        {           ;
+        {           
             BadEnd();
         }
     }
