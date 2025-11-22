@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
         else if (moveY > 0 || moveY < 0)
         {
             
-            if (lastmove > 0)
+            if (lastmove >= 0)
             {
                 _animator.SetBool("isRunning", true);
                 _animator.SetBool("isRunningLeft", false);
