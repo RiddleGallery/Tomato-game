@@ -53,7 +53,7 @@ public class ShowHighscoreScript : MonoBehaviour
     // get score from gamemanager then compare with saved highscore and update if it is higher
     public void Update()
     {
-        int currentScore = GameManager.Instance._score;
+        int currentScore = GameManager.Instance.Score();
         int savedHighscore = int.Parse(_highscore);
         if (currentScore > savedHighscore)
         {

@@ -32,7 +32,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float _SpawnerInGame;
     private int _health;
-    public int _score;
+    private int _score;
+
+
+
     [SerializeField] private int _scoreThreshold;
 
     private float _timeLim = 95f;
@@ -102,6 +105,11 @@ public class GameManager : MonoBehaviour
             }
                 
         }
+    }
+
+    public int Score()
+    {
+        return _score;
     }
 
     private void NormalEnd()
