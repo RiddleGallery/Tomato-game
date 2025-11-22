@@ -4,6 +4,7 @@ using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -76,6 +77,10 @@ public class GameManager : MonoBehaviour
     {
         CountDown();
     }
+    public int Score()
+    {
+        return _score;
+    }
 
     public void AddScore(int increment)
     {
@@ -107,10 +112,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public int Score()
-    {
-        return _score;
-    }
 
     private void NormalEnd()
     {
