@@ -77,10 +77,7 @@ public class GameManager : MonoBehaviour
     {
         CountDown();
     }
-    public int Score()
-    {
-        return _score;
-    }
+
 
     public void AddScore(int increment)
     {
@@ -123,6 +120,7 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         if (_isGameOver) return;
+        PlayerPrefs.SetInt("LastScore", _score);
         _isGameOver = true;
         Time.timeScale = 0f;
         _restartButton.gameObject.SetActive(true);
