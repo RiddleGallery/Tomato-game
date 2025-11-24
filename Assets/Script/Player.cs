@@ -6,8 +6,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private float lastmove;
+    [SerializeField] private float _lastmove;
+
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _walking;
+    [SerializeField] private AudioClip _tomatoSplat;
+    [SerializeField] private AudioClip _fryThrow;
+    [SerializeField] private AudioClip _collect;
+    
+
     [SerializeField] Rigidbody2D _bulletPrefab;
+
     private Rigidbody2D _rb;
     private Animator _animator;
 
@@ -16,7 +25,7 @@ public class Player : MonoBehaviour
         transform.position = Vector3.zero;
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-
+        _audioSource = GetComponent<AudioSource>();
     }
     
 
@@ -30,11 +39,22 @@ public class Player : MonoBehaviour
 
         // please do the animator for moving left right 
         
+        if (moveX != 0 || moveY != 0)
+        {
+            if (!_audioSource.isPlaying)
+            {
+                _audioSource.Play();
+            }
+        }
+        else
+        {
+            _audioSource.Stop();
+        }
         
         if (moveX > 0)
         {
             moveX = 1;
-            lastmove = moveX;
+            _lastmove = moveX;
             _animator.SetBool("isRunning", true);
             _animator.SetBool("isRunningLeft", false);
             _animator.SetBool("isRunningRight", true) ;
@@ -42,7 +62,7 @@ public class Player : MonoBehaviour
         else if (moveX < 0)
         {
             moveX = -1;
-            lastmove = moveX;
+            _lastmove = moveX;
             _animator.SetBool("isRunning", true);
             _animator.SetBool("isRunningLeft", true);
             _animator.SetBool("isRunningRight", false);
@@ -50,13 +70,13 @@ public class Player : MonoBehaviour
         else if (moveY > 0 || moveY < 0)
         {
             
-            if (lastmove >= 0)
+            if (_lastmove >= 0)
             {
                 _animator.SetBool("isRunning", true);
                 _animator.SetBool("isRunningLeft", false);
                 _animator.SetBool("isRunningRight", true);
             }
-            else if (lastmove < 0)
+            else if (_lastmove < 0)
             {
                 _animator.SetBool("isRunning", true);
                 _animator.SetBool("isRunningLeft", true);
@@ -66,6 +86,8 @@ public class Player : MonoBehaviour
         }
         else
         {
+            moveX = 0f;
+            moveY = 0f;
             _animator.SetBool("isRunningLeft", false);
             _animator.SetBool("isRunning", false);
             _animator.SetBool("isRunningRight", false);
@@ -74,6 +96,7 @@ public class Player : MonoBehaviour
         // shoot bullet at mouse position when left mouse button is clicked pivot is front of the bullet
         if (Input.GetMouseButtonDown(0))
         {
+            PlaySFX(_fryThrow);
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 shootDirection = (mousePosition - transform.position);
             shootDirection.z = 0f;
@@ -85,9 +108,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void PlayCollectSFX()
+    {
+        PlaySFX(_collect);
+    }
+
     public void GotHurt()
     {
+        PlaySFX(_tomatoSplat);
         _animator.SetTrigger("Hurt");
+        
+    }
+
+    private void PlaySFX(AudioClip sfx)
+    {
+        
+        _audioSource.PlayOneShot(sfx);
     }
 
 

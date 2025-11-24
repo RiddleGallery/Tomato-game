@@ -4,14 +4,31 @@ using UnityEngine;
 
 public class Prize : MonoBehaviour
 {
+    
+
+    [SerializeField] private bool _pickedUp = false;
+    [SerializeField] private bool _sfxIsPlaying = true;
+
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _fryTransform;
+
+    [SerializeField] private Player _player;
+    
     private Rigidbody2D _rb;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _player = GetComponent<Player>();
         _rb.isKinematic = false;
+        _audioSource = GetComponent<AudioSource>();
     }
 
     decimal time = 0m;
+    private void Start()
+    {
+        _audioSource.PlayOneShot(_fryTransform);
+    }
+
     void FixedUpdate()
     {
         time += 0.02m;
@@ -26,6 +43,8 @@ public class Prize : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,8 +52,11 @@ public class Prize : MonoBehaviour
         Player player = collision.gameObject.GetComponent<Player>();
         if (player != null)
         {
+            _player = player;
             GameManager.Instance.AddScore(5);
+            _player.PlayCollectSFX();
             Destroy(gameObject);
+
         }
 
         EnemySpawner spawner = collision.gameObject.GetComponent<EnemySpawner>();
@@ -44,5 +66,7 @@ public class Prize : MonoBehaviour
             spawner.StopThrowing();
         }
     }
+
+    
 
 }
