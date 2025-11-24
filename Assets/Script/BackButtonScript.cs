@@ -24,7 +24,9 @@ public class BackButtonScript : MonoBehaviour
     public void Back()
     {
         Debug.Log("working");
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
+
 
     }
 }
