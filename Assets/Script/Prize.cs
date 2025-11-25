@@ -6,8 +6,8 @@ public class Prize : MonoBehaviour
 {
     
 
-    [SerializeField] private bool _pickedUp = false;
-    [SerializeField] private bool _sfxIsPlaying = true;
+    
+    
 
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _fryTransform;

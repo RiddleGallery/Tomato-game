@@ -19,7 +19,7 @@ public class BGMMainMenuScript : MonoBehaviour
     [SerializeField] private bool _playFire;
     [SerializeField] private bool _playPizzaC;
 
-    //[SerializeField] private GameManager _gameManager;
+    
 
     
     
@@ -39,8 +39,11 @@ public class BGMMainMenuScript : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
 
+        
+
 
         _audioSource = GetComponent<AudioSource>();
+        
         SceneManager.activeSceneChanged += OnSceneChanged;
         
 
@@ -48,29 +51,18 @@ public class BGMMainMenuScript : MonoBehaviour
 
 
     }
+    
+    public void StopFromOther()
+    {
+        _audioSource.Stop();
+    }
 
     private void PlayNewMusic (AudioClip clip)
     {
 
             _audioSource.clip = clip;
             _audioSource.Play();
-            /*_isPlaying = true;
             
-            if (BGMInstance != null   )
-            {
-                _audioSource.enabled = true;
-               
-            }*/
-
-            /*if (BGMInstance == this)
-            {
-                Debug.Log("using this one");
-
-            }
-            else
-            {
-                Debug.Log("something when wrong");
-            }*/
             
         
         
@@ -88,7 +80,7 @@ public class BGMMainMenuScript : MonoBehaviour
             
             _audioSource.Stop();
 
-            _audioSource.volume = 0.25f;
+            _audioSource.volume = 0.40f;
             PlayNewMusic(_fire);
             
         }

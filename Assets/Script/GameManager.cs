@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _backButton;
 
+    [SerializeField] private AudioSource _audioSource;
+    
+    
     
 
      private float _SpawnerInGame = 4f;
@@ -116,17 +119,19 @@ public class GameManager : MonoBehaviour
     private void NormalEnd()
     {
         EndGame();
+        _audioSource.Play();
         ShowHighscoreScript.NormalEndUnlocked = true;
         _normalEnd.gameObject.SetActive(true);
     }
 
     private void EndGame()
     {
+        Debug.Log("Game ended");
         if (_isGameOver) return;
         PlayerPrefs.SetInt("LastScore", _score);
         _isGameOver = true;
         Time.timeScale = 0f;
-        
+        BGMMainMenuScript.Instance.StopFromOther();
         _restartButton.gameObject.SetActive(true);
         _backButton.gameObject.SetActive(true);
     }
@@ -166,6 +171,7 @@ public class GameManager : MonoBehaviour
     private void GoodEnd()
     {
         EndGame();
+        _audioSource.Play();
         ShowHighscoreScript.GoodEndUnlocked = true;
         _goodEnd.gameObject.SetActive(true);
     }
@@ -178,6 +184,7 @@ public class GameManager : MonoBehaviour
     private void HappyEnd()
     {
         EndGame();
+        _audioSource.Play();
         ShowHighscoreScript.HappyEndUnlocked = true;
         _happyEnd.gameObject.SetActive(true);
     }

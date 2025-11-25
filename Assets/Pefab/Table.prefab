@@ -106,6 +106,7 @@ MonoBehaviour:
   _max: 2
   _source: {fileID: 182161939971319591}
   _clip: {fileID: 8300000, guid: 376dc007d244b0649bdc2af51746feec, type: 3}
+  _stopThrowing: {fileID: 8300000, guid: f60cbeff7060f644a98cd31d48323769, type: 3}
 --- !u!61 &1186469251977675117
 BoxCollider2D:
   m_ObjectHideFlags: 0

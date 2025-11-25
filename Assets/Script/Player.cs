@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip _tomatoSplat;
     [SerializeField] private AudioClip _fryThrow;
     [SerializeField] private AudioClip _collect;
+
+    [SerializeField] private GameManager _gameManager;
     
 
     [SerializeField] Rigidbody2D _bulletPrefab;
@@ -47,6 +49,11 @@ public class Player : MonoBehaviour
             }
         }
         else
+        {
+            _audioSource.Stop();
+        }
+
+        if (_gameManager.ReturnEndGame())
         {
             _audioSource.Stop();
         }
