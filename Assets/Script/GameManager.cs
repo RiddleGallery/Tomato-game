@@ -31,13 +31,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _backButton;
 
-    [SerializeField] private float _SpawnerInGame;
+     private float _SpawnerInGame = 4f;
     private int _health;
     private int _score;
 
 
 
-    [SerializeField] private int _scoreThreshold;
+     private int _scoreThreshold = 50;
 
     private float _timeLim = 95f;
     bool _isGameOver;

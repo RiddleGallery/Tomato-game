@@ -1982,8 +1982,8 @@ MonoBehaviour:
   _normalEnd: {fileID: 2079947217}
   _restartButton: {fileID: 1772846297}
   _backButton: {fileID: 1817395577}
-  _SpawnerInGame: 1
-  _scoreThreshold: 10
+  _SpawnerInGame: 4
+  _scoreThreshold: 50
 --- !u!4 &1073626105
 Transform:
   m_ObjectHideFlags: 0
