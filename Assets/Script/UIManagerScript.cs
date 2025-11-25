@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class UIManagerScript : MonoBehaviour
 {
-    [SerializeField] private Button playButton;
-    [SerializeField] private Button tutorialButton;
-    [SerializeField] private Button highScoreButton;
-    [SerializeField] private Button exitButton;
+    [SerializeField] private Button _playButton;
+    [SerializeField] private Button _tutorialButton;
+    [SerializeField] private Button _highScoreButton;
+    [SerializeField] private Button _exitButton;
 
     
     // Start is called before the first frame update
