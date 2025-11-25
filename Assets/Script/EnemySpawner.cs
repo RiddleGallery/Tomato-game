@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour
     private Animator _animator;
     private float _many;
     float timer = 0f;
+    [SerializeField] private AudioSource _source;
+    [SerializeField] private AudioClip _clip;
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -36,6 +38,7 @@ public class EnemySpawner : MonoBehaviour
         // spawn enemy at object position
         Enemy spawnedEnemy = Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
         spawnedEnemy.SetMovementTarget(_ta);
+        _source.PlayOneShot(_clip);
     }
 
     public void StopThrowing()

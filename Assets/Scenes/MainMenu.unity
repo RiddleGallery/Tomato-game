@@ -924,7 +924,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e4d22a22bbcbfbe4283bd1cd5bee0ccd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.461
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1052,7 +1052,6 @@ MonoBehaviour:
   _fire: {fileID: 8300000, guid: bc667b0272240064b8d973be42830821, type: 3}
   _playFire: 0
   _playPizzaC: 0
-  _isPlaying: 0
 --- !u!1 &1841517946
 GameObject:
   m_ObjectHideFlags: 0

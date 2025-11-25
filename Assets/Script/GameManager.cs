@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _backButton;
 
+    
+
      private float _SpawnerInGame = 4f;
     private int _health;
     private int _score;
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
         }
         _instance = this;
 
+        
         
 
         _health = 0;
@@ -123,8 +126,14 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("LastScore", _score);
         _isGameOver = true;
         Time.timeScale = 0f;
+        
         _restartButton.gameObject.SetActive(true);
         _backButton.gameObject.SetActive(true);
+    }
+
+    public bool ReturnEndGame()
+    {
+        return _isGameOver;
     }
 
     public void InactiveSpawner(int increment)
